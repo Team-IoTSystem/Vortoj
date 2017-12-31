@@ -14,12 +14,12 @@ packetデータをmysqlから引き取ってWebAPIを通じて送信します。
 ## Vortoj-StremingAPIServer
 packetデータをUnixDomainSocketのプロセス間通信を通じてデータのやり取りし,websocket通信をして提供します。
 
-## prepare
+## install.sh
 セットアップ用スクリプト。
 12 ~ 14行目をお住まいの環境に合わせてね。
 
 ```shell
 
-chmod u+x prepare.sh
-sudo -E ./prepare.sh
+chmod u+x install.sh
+sudo -E ./install.sh
 ```

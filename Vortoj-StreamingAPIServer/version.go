@@ -1,7 +1,7 @@
 package main
 
 const (
-	Name string = "Voroj-PacketFilter"
+	Name string = "Voroj-StreamingAPIServer"
 )
 
 var (

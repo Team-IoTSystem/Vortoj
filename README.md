@@ -19,7 +19,7 @@ packetデータをUnixDomainSocketのプロセス間通信を通じてデータ�
 12 ~ 14行目をお住まいの環境に合わせてね。
 
 ```shell
-
+wget -O https://raw.githubusercontent.com/Team-IoTSystem/Vortoj/master/install.sh
 chmod u+x install.sh
 sudo -E ./install.sh
 ```

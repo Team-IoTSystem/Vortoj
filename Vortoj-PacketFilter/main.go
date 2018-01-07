@@ -15,7 +15,7 @@ import (
 )
 
 var (
-	device      = flag.String("i", "en0", "using device to network interface name") //ifconfigやip aとかで調べて使ってください
+	device      = flag.String("i", "br0", "using device to network interface name") //ifconfigやip aとかで調べて使ってください
 	snapshotLen = flag.Int64("len", 1024, "date snapshot size")
 	promiscuous = flag.Bool("promise", false, "is promiscuous mode")
 	err         error

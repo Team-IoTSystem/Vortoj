@@ -15,20 +15,5 @@ packetデータをmysqlから引き取ってWebAPIを通じて送信します。
 packetデータをUnixDomainSocketのプロセス間通信を通じてデータのやり取りし,websocket通信をして提供します。
 
 ## install.sh
-テスト用環境
-user : pi
-Raspbian Nov.2017
-
-IPaddressは各自変更すること。
-Vortoj-PacketFilterの en0 を br0 とかにするとよい。
-
-prepare.shを　git clone して他を持ってくる(?)
-
-```shell
-wget -O https://raw.githubusercontent.com/Team-IoTSystem/Vortoj/master/install.sh
-chmod u+x install.sh
-sudo -E ./install.sh
-
-Packet filter実行時は
-`sudo -E go run main.go`
-```
+テスト用環境へのインストールを助ける。
+OS : Raspbian Nov.2017

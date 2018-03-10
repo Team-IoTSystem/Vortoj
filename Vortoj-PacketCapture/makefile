@@ -1,4 +1,4 @@
-NAME := Vortoj-PacketFilter
+NAME := Vortoj-PacketCapture
 VERSION := v0.0.1
 REVISON := $(shell git rev-parse --short HEAD)
 

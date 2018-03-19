@@ -44,6 +44,7 @@ func main() {
 	e.GET("/api/distance/macaddress", func(c echo.Context) error {
 		return controllers.DistanceSelectMacAddress(c)
 	})
+
 	// Start server
 	e.Logger.Fatal(e.Start(":3000"))
 }

@@ -155,20 +155,25 @@ func DistanceSelectMacAddress(c echo.Context) error {
 		os.Exit(-1)
 	}
 	sess := conn.NewSession(nil)
+	q := c.Request().URL.Query()
 
 	macaddress := c.QueryParam("macaddress")
-	rpimacaddress := c.QueryParam("rpi_macaddress")
+	rpi_macaddress_list := q["rpi_macaddress"]
+	fmt.Println("macaddress: ", macaddress)
+	rpimacaddress := rpi_macaddress_list[0]
+	fmt.Println("rpi_macaddress: ", rpimacaddress)
+
 	order_one, _ := strconv.Atoi(c.QueryParam("new_order_one"))
 
 	var distance []datamodel.DBDistance
 
 	if order_one == 1 {
 		//ex test
-		// localhost:3000/api/distance/macaddress?macaddress=84:89:AD:8D:85:F6&rpi_macaddress=b827ebf277a4&order_one=1
-		// select * from distance where id = (select MAX(id) from distance where macaddr = "84:89:AD:8D:85:F6" AND rpimac = "b827ebf277a4")
+		// localhost:3000/api/distance/macaddress?macaddress=84:89:AD:8D:85:F6&rpi_macaddress=106f3f59c177&rpi_macaddress=b827ebf277a4&new_order_one=1
+		// select * from distance where id = (select MAX(id) from distance where macaddr = "84:89:AD:8D:85:F6" AND (rpimac = "106f3f59c177" OR rpimac = "b827ebf277a4" ))
 		sess.Select("*").From(datamodel.DISTANCE_TABLENAME).
 			Where("id = (select MAX(id) from "+datamodel.DISTANCE_TABLENAME+
-				" where macaddr = ? AND rpimac = ?)", macaddress, rpimacaddress).Load(&distance)
+				" where macaddr = ? AND (rpimac = ? OR rpimac = ?))", macaddress, rpi_macaddress_list[0], rpi_macaddress_list[1]).Load(&distance)
 	} else {
 		sess.Select("*").From(datamodel.DISTANCE_TABLENAME).Where("macaddr = ?", macaddress).Load(&distance)
 	}

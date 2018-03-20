@@ -128,9 +128,12 @@ func InsertPacketData(p *TPacket) bool {
 	insertpacket := p
 
 	conn, err := getDBInstance()
+
 	if err != nil {
+		log.Println(err)
 		os.Exit(-1)
 	}
+
 	sess := conn.NewSession(nil)
 
 	stmt := sess.InsertInto("packet").Columns(
@@ -150,12 +153,12 @@ func InsertPacketData(p *TPacket) bool {
 
 	result, err := stmt.Exec()
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return false
 	} else {
 		//result.RowsAffected()
 		count, _ := result.RowsAffected()
-		fmt.Println(count)
+		log.Println(count)
 		return true
 	}
 }

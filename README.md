@@ -1,6 +1,8 @@
 # Vortoj
 IoTデバイスを取り扱うあなたのソリューションです。
 
+![LOGO](https://i.imgur.com/pzfoVz8.png)
+
 ## What is "Vortoj"?
 VortojはEsperanto語においての言の葉という意味です。
 僕らの持ってるIoTデバイスを繋げ,情報を伝えて続けていくという気持ちが込められています。
